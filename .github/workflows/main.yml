@@ -1,0 +1,38 @@
+name: Migrate Kernel Artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Destination Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.LINKIT }}
+
+      - name: Download Artifacts from ExtremeKernel
+        run: |
+          mkdir -p kernels
+          # Artifact IDs from your links
+          ids=("5438080322" "5438080687" "5438082956" "5438089782" "5438091374")
+          names=("D2s" "D1" "D1xks" "D2x" "D2xks")
+
+          for i in "${!ids[@]}"; do
+            echo "Downloading ${names[$i]}..."
+            curl -L \
+              -H "Authorization: Bearer ${{ secrets.LINKIT }}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              -o "kernels/${names[$i]}.zip" \
+              "https://api.github.com/repos/Link2mem/ExtremeKernel/actions/artifacts/${ids[$i]}/zip"
+          done
+
+      - name: Commit and Push Files
+        run: |
+          git config --global user.name "Link2mem"
+          git config --global user.email "Were.aksle@gmail.com"
+          git add kernels/
+          git commit -m "Add LinkitKernel Clean Edition binaries"
+          git push origin main
