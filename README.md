@@ -11,16 +11,4 @@ This update was created because many users complained about banking apps not wor
  * Extract the first ZIP file to find the flashable ZIP inside.
  * Boot into TWRP.
  * Go to Install, select the internal flashable ZIP, and swipe to confirm.
- * Note: This kernel is 100% clean, but it is fully compatible with Magisk if you choose to flash it afterward.
-🔗 Download Links
-✅ D2s (Examined/Tested):
-https://github.com/Link2mem/ExtremeKernel/actions/runs/21838943726/artifacts/5438080322
-⚠️ D1 (Unverified):
-https://github.com/Link2mem/ExtremeKernel/actions/runs/21838943726/artifacts/5438080687
-⚠️ D1xks (Unverified):
-https://github.com/Link2mem/ExtremeKernel/actions/runs/21838943726/artifacts/5438082956
-⚠️ D2x (Unverified):
-https://github.com/Link2mem/ExtremeKernel/actions/runs/21838943726/artifacts/5438089782
-⚠️ D2xks (Unverified):
-https://github.com/Link2mem/ExtremeKernel/actions/runs/21838943726/artifacts/5438091374
-these links may be deleted in future.... intall the editions from here in the repo
+ * Note: This kernel is 100% clean, but it is fully compatible with Magisk if you choose to flash it afterward
